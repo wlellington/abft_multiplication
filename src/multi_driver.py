@@ -22,7 +22,7 @@ import sys
 arr_x = 4
 arr_y = 4
 
-# Use only on processor
+# Use only one processor
 run_serial = False
 
 # Processor array server addresses
@@ -212,7 +212,7 @@ def distributed_abft(input_1 = None, input_2 = None):
 	print("Writing results to file...")
 	start = time.time()
 	write_csv(final_matrix, "output.csv")
-	write_csv(final_matrix, "output_abft.csv")
+	write_csv(final_matrix_abft, "output_abft.csv")
 	end = time.time()
 	print("\tTime: %s" % str(end-start))
 

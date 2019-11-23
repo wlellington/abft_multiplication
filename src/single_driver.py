@@ -5,7 +5,7 @@
 
 # Driver script to execute SERIAL implementation of ABFT multiplication
 # Can be run with or without inputs (generate random files if non supplied)
-# run: python single_driver.py <input_csv_1> <input_csv_2>
+# run: python single_driver.py [<input_csv_1> <input_csv_2>]
 
 from csv_io import *
 from abft import *
@@ -106,9 +106,9 @@ standard_result = np.matrix(input_matrix_1) * np.matrix(input_matrix_2)
 
 # Compare standard and ABFT calculation to ensure correct multiplication results
 # Subtract subtract standard result from ABFT result data component, then take norm
-comp_matrix = strip_abft_check_data(result_matrix_abft, strip_mode = "all")
+value_matrix = strip_abft_check_data(result_matrix_abft, strip_mode = "all")
 
-comp_matrix = standard_result - comp_matrix
+comp_matrix = standard_result - value_matrix
 norm = np.linalg.norm(comp_matrix)
 print("Error norm between built-in and ABFT matrix multiplication: %f "% norm)
 end = time.time()
@@ -116,6 +116,7 @@ end = time.time()
 
 print("Writing results to file...")
 start = time.time()
+write_csv(value_matrix, "output.csv")
 write_csv(result_matrix_abft, "output_abft.csv")
 end = time.time()
 print("\tTime: %s" % str(end-start))

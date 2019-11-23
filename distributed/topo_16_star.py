@@ -11,8 +11,8 @@ class center_star( Topo ):
 
     def __init__( self ):
 
-        # Initialize topology
-        Topo.__init__( self )
+    # Initialize topology
+    Topo.__init__( self )
 
         # Add hosts and switches
 	host_00 = self.addHost( 'h00' )
@@ -34,7 +34,7 @@ class center_star( Topo ):
     host_16 = self.addHost( 'h16' )
 	switch_0 = self.addSwitch( 's0')
 
-        # Add links
+    # Add links
 	self.addLink(switch_0, host_00)
 
 	self.addLink(switch_0, host_01)

@@ -14,7 +14,7 @@ In place of:
 
 `import socketserver`
 
-Running on older versions of Python may also require some modifications for Numpy compatibility as well.
+Running on older versions of Python may also require some modifications for Numpy compatibility as well. It was originally designed for Numpy 1.14.3 (or later) to allow for file encoding options.
 
 ## Execution and Results
 ### Serial
